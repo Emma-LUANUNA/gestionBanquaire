@@ -1,40 +1,52 @@
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.DoubleProperty;
+
 public class CompteBancaire {
-    protected String numeroCompte;
-    protected String nomTitulaire;
-    protected double solde;
+    protected StringProperty numeroCompte;
+    protected StringProperty nomTitulaire;
+    protected DoubleProperty solde;
 
     public CompteBancaire(String numeroCompte, String nomTitulaire, double solde) {
-        this.numeroCompte = numeroCompte;
-        this.nomTitulaire = nomTitulaire;
-        this.solde = solde;
+        this.numeroCompte = new SimpleStringProperty(numeroCompte);
+        this.nomTitulaire = new SimpleStringProperty(nomTitulaire);
+        this.solde = new SimpleDoubleProperty(solde);
     }
 
     public String getNumeroCompte() {
+        return numeroCompte.get();
+    }
+
+    public void setNumeroCompte(String numeroCompte) {
+        this.numeroCompte.set(numeroCompte);
+    }
+
+    public StringProperty numeroCompteProperty() {
         return numeroCompte;
     }
 
     public String getNomTitulaire() {
+        return nomTitulaire.get();
+    }
+
+    public void setNomTitulaire(String nomTitulaire) {
+        this.nomTitulaire.set(nomTitulaire);
+    }
+
+    public StringProperty nomTitulaireProperty() {
         return nomTitulaire;
     }
 
     public double getSolde() {
-        return solde;
-    }
-
-    public void setNomTitulaire(String nomTitulaire) {
-        this.nomTitulaire = nomTitulaire;
+        return solde.get();
     }
 
     public void setSolde(double solde) {
-        this.solde = solde;
+        this.solde.set(solde);
     }
 
-    @Override
-    public String toString() {
-        return "CompteBancaire{" +
-                "numeroCompte='" + numeroCompte + '\'' +
-                ", nomTitulaire='" + nomTitulaire + '\'' +
-                ", solde=" + solde +
-                '}';
+    public DoubleProperty soldeProperty() {
+        return solde;
     }
 }

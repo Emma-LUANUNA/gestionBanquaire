@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.awt.TextField?>
+<?import java.awt.Button?>
+<?import java.awt.Insets?>
+<?import java.awt.Label?>
+<?import javax.swing.text.TableView?>
+<?import javax.swing.table.TableColumn?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml" fx:controller="MainController">
+    <children>
+        <Label text="Gestion des Comptes Bancaires" />
+        <GridPane hgap="10" vgap="10">
+            <children>
+                <Label text="Numéro de compte" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <TextField fx:id="numeroCompteField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                <Label text="Nom du titulaire" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="nomTitulaireField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <Label text="Solde" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <TextField fx:id="soldeField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                <Button text="Ajouter Compte" onAction="#handleAddAccount" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+        </GridPane>
+        <TableView fx:id="accountTable">
+            <columns>
+                <TableColumn text="Numéro de compte" fx:id="numeroCompteColumn" />
+                <TableColumn text="Nom du titulaire" fx:id="nomTitulaireColumn" />
+                <TableColumn text="Solde" fx:id="soldeColumn" />
+            </columns>
+        </TableView>
+    </children>
+</VBox>
